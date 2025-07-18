@@ -32,7 +32,7 @@ export default function Banner({ person }: BannerProps) {
           Nguyễn Văn Nhất
         </h2>
         <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-          "{person.quote}"
+          {`"${person.quote}"`}
         </p>
         <div className="flex justify-center space-x-4">
           <button 

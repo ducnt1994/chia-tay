@@ -1,18 +1,17 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Testimonial as TestimonialType } from '@/data/farewell-data';
 
-interface TestimonialsProps {
-  testimonials: TestimonialType[];
-}
-
-export default function Testimonials({ testimonials }: TestimonialsProps) {
+export default function Testimonials() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  const [listMemories, setListMemories] = useState<any[]>([]);
+  const [listMemories, setListMemories] = useState<{
+    name: string;
+    message: string;
+    position: number;
+  }[]>([]);
 
 
   useEffect(() => {
@@ -156,7 +155,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
               {listMemories.map((testimonial, index) => (
-                <div key={testimonial.id} className="testimonial-slide w-full flex-shrink-0 px-4">
+                <div key={index} className="testimonial-slide w-full flex-shrink-0 px-4">
                   <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl max-w-4xl mx-auto">
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
                       <div className="text-center md:text-left">
@@ -174,7 +173,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
                           </svg>
                         </div>
                         <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic">
-                          "{testimonial.message}"
+                          {`"${testimonial.message}`}
                         </p>
                       </div>
                     </div>

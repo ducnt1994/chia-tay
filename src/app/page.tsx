@@ -9,11 +9,10 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Banner person={farewellData.person} />
-      <FarewellMessage 
-        person={farewellData.person} 
+      <FarewellMessage
         farewellMessage={farewellData.farewellMessage} 
       />
-      <Testimonials testimonials={farewellData.testimonials} />
+      <Testimonials />
       <Gallery gallery={farewellData.gallery} />
       <Footer footer={farewellData.footer} />
     </main>

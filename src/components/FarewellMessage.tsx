@@ -1,14 +1,13 @@
 'use client';
 
 import { Person, FarewellMessage as FarewellMessageType } from '@/data/farewell-data';
-import { useEffect, useState } from 'react';
 
 interface FarewellMessageProps {
-  person: Person;
+  person?: Person;
   farewellMessage: FarewellMessageType;
 }
 
-export default function FarewellMessage({ person, farewellMessage }: FarewellMessageProps) {
+export default function FarewellMessage({ farewellMessage }: FarewellMessageProps) {
 
   return (
     <section id="farewell-section" className="py-20 bg-white">
